@@ -3,11 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>QAP 2027 · Quality Assessment in Practice · CVPR 2027 Workshop</title>
-<meta name="description" content="Quality Assessment in Practice: From Benchmarks to Deployment. A half-day workshop at CVPR 2027 on application-driven image and video quality assessment.">
-<meta property="og:title" content="QAP 2027 · Quality Assessment in Practice (CVPR 2027 Workshop)">
-<meta property="og:description" content="From benchmarks to deployment: building, validating and deploying trustworthy image and video quality assessment.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f2a3d'/%3E%3Crect x='6' y='18' width='4' height='8' rx='1' fill='%235fb3a8'/%3E%3Crect x='14' y='12' width='4' height='14' rx='1' fill='%2389c9a0'/%3E%3Crect x='22' y='6' width='4' height='20' rx='1' fill='%23f2c14e'/%3E%3C/svg%3E">
+<title>VQAP 2027 · Visual Quality Assessment in Practice · CVPR 2027 Workshop</title>
+<meta name="description" content="Visual Quality Assessment in Practice: Toward Meaningful and Actionable Quality Evaluation. A half-day workshop at CVPR 2027.">
+<meta property="og:title" content="VQAP 2027 · Visual Quality Assessment in Practice (CVPR 2027 Workshop)">
+<meta property="og:description" content="Toward meaningful and actionable quality evaluation of images and videos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
@@ -162,6 +161,13 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;heig
 footer{background:var(--ink);color:#a9bfc9;padding:36px 0;font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 footer a{color:#dbe9ee}
+
+/* panel */
+.panel{margin-top:22px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:var(--radius);padding:22px 24px}
+.panel .tag{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.panel h3{font-family:"Source Serif 4",Georgia,serif;font-size:1.3rem;margin:6px 0 8px}
+.panel p{margin:0;color:var(--ink-2);font-size:.96rem}
+.speakers .spk{flex:0 1 calc(33.333% - 18px)}
 </style>
 </head>
 <body>
@@ -170,7 +176,7 @@ footer a{color:#dbe9ee}
   <div class="wrap">
     <a class="brand" href="#top">
       <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0f2a3d"/><rect x="6" y="18" width="4" height="8" rx="1" fill="#5fb3a8"/><rect x="14" y="12" width="4" height="14" rx="1" fill="#89c9a0"/><rect x="22" y="6" width="4" height="20" rx="1" fill="#f2c14e"/></svg>
-      QAP <small>@ CVPR 2027</small>
+      VQAP <small>@ CVPR 2027</small>
     </a>
     <button class="menu-btn" aria-label="Toggle menu" onclick="document.querySelector('.links').classList.toggle('open')">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -195,8 +201,8 @@ footer a{color:#dbe9ee}
   </div>
   <div class="wrap">
     <div class="eyebrow">CVPR 2027 Workshop · First Edition</div>
-    <h1>Quality Assessment in Practice</h1>
-    <p class="sub">From Benchmarks to Deployment</p>
+    <h1>Visual Quality Assessment in Practice</h1>
+    <p class="sub">Toward Meaningful and Actionable Quality Evaluation</p>
     <div class="meta">
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>June 20 or 21, 2027 (TBC)</span>
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Half day · Afternoon</span>
@@ -213,10 +219,10 @@ footer a{color:#dbe9ee}
   <div class="wrap about-grid">
     <div>
       <div class="eyebrow">About the workshop</div>
-      <h2>Quality that informs a decision</h2>
-      <p>Quality assessment of images and videos is most valuable when it informs a decision: tuning a camera, optimizing compression and streaming, releasing a generative model, or filtering content at scale. Yet quality depends on the application, the content and the decision at hand, while most research still targets general-purpose metrics evaluated on a few benchmarks.</p>
-      <p>The <strong>Quality Assessment in Practice (QAP)</strong> workshop advances application-driven assessment: methods designed for specific tasks, validated under realistic conditions and deployed in real systems. Through invited talks, contributed papers and a panel, we explore how to build, validate and deploy trustworthy quality assessment.</p>
-      <p>A central question: <em>what does it take for a quality metric to be trusted when it drives a real decision?</em></p>
+      <h2>Meaningful, reliable, actionable quality assessment</h2>
+      <p>Visual quality assessment is essential for evaluating the images and videos we capture, process, edit, and generate. Advances in computational imaging and generative models demand assessment methods that go beyond low-level fidelity and subjective score prediction to account for human perception, perceptual realism, semantic and physical plausibility, and task-specific requirements. However, existing methods often struggle to generalize across content and applications or capture the quality dimensions that matter in practice.</p>
+      <p>The <strong>Visual Quality Assessment in Practice (VQAP)</strong> workshop brings together researchers in perceptual quality, image and video processing, computational imaging, and generative models. Through invited talks, paper presentations, and a panel discussion, we aim to advance meaningful, reliable, and actionable quality assessment.</p>
+      <p>We are particularly interested in how quality should be defined and measured across different visual tasks, how assessment methods can better align with human judgments, and how they can account for the increasingly diverse outputs of modern vision systems.</p>
     </div>
     <aside class="facts" aria-label="Workshop at a glance">
       <dl>
@@ -236,29 +242,30 @@ footer a{color:#dbe9ee}
     <div class="sec-head">
       <div class="eyebrow">Scope</div>
       <h2>Topics of interest</h2>
-      <p class="lead">Submissions should connect a quality assessment method to a concrete application, decision, system, or deployment constraint. Topics include, but are not limited to:</p>
+      <p class="lead">Submissions should address the challenges of defining, measuring, and validating visual quality across different content types and visual tasks. We welcome both methodological advances and application-oriented studies. Topics include, but are not limited to:</p>
     </div>
     <div class="topics">
-      <div class="card topic"><span class="num">1</span><h3>Perceptually consistent assessment</h3><p>Predictions that agree with human judgment, including fine-grained differences in high-fidelity content and consistency across content, devices, and viewing conditions.</p></div>
-      <div class="card topic"><span class="num">2</span><h3>Generative and AI-enhanced content</h3><p>Assessment of restored, edited, and generated images and videos, including consistency with the user's intent and, for videos, temporal consistency of identities and objects and consistency with physical rules.</p></div>
-      <div class="card topic"><span class="num">3</span><h3>Quality models as optimization targets</h3><p>Using quality models as losses, rewards, and data filters, and keeping them robust when systems are optimized against them.</p></div>
-      <div class="card topic"><span class="num">4</span><h3>Multimodal and explainable assessment</h3><p>Vision-language models as quality judges, interpretable quality reports, and benchmarks for quality assessment.</p></div>
-      <div class="card topic"><span class="num">5</span><h3>Assessment in deployment</h3><p>Efficient and reliable quality assessment across smartphone photography, streaming, AR/VR, relighting, 3D reconstruction and novel-view synthesis, and machine-oriented tasks.</p></div>
+      <div class="card topic"><span class="num">1</span><h3>Perceptual quality modeling and subjective assessment</h3><p>Objective quality metrics aligned with human visual perception, perceptual similarity, fidelity–realism trade-offs, human preferences, subjective evaluation methodologies, observer variability, psychovisual factors, and the construction of perceptually meaningful ground truth.</p></div>
+      <div class="card topic"><span class="num">2</span><h3>Generalization and robustness</h3><p>Evaluating quality models under domain shifts, unseen distortions, new acquisition and display technologies, and changing viewing conditions, including cross-dataset and cross-application generalization.</p></div>
+      <div class="card topic"><span class="num">3</span><h3>Quality assessment for generative and AI-enhanced content</h3><p>Evaluating restored, enhanced, edited, and generated images and videos, including perceptual realism, semantic correctness, physical plausibility, consistency with user intent, and temporal consistency of identities, objects, and scene dynamics.</p></div>
+      <div class="card topic"><span class="num">4</span><h3>Quality models for optimization and multimodal evaluation</h3><p>Quality models as perceptual losses, rewards, and preference signals for image processing and generative models; data selection and filtering; robustness against metric over-optimization; and multimodal, explainable assessment with vision-language models and interpretable quality reports.</p></div>
+      <div class="card topic"><span class="num">5</span><h3>Quality assessment across visual applications</h3><p>Computational photography, image restoration and enhancement, lighting estimation and relighting, image and video editing, compression and streaming, AR/VR/XR, 3D reconstruction, neural rendering and novel-view synthesis, and other emerging visual applications.</p></div>
+      <div class="card topic"><span class="num">6</span><h3>Evaluation methodologies and standardization</h3><p>Reproducible evaluation protocols, benchmarking practices, subjective-study design, statistical analysis, and quality metrics supporting emerging image and video standards, with attention to interoperability and practical requirements.</p></div>
     </div>
-    <p class="note">We also welcome related perspectives on how quality assessment can be built, validated, and deployed for any application where visual quality matters. <strong>Deployment reports, including negative results, are welcome</strong> when they provide evidence of where, why, and under what conditions a quality assessment method succeeds or fails.</p>
+    <p class="note">We particularly encourage submissions that provide <strong>rigorous and reproducible evaluations</strong>, including details of subjective-study methodology, viewing conditions, statistical analysis, computational requirements, and failure cases. We also welcome work examining how quality assessment methods can guide the development, optimization, and evaluation of image and video systems. <strong>Reports of practical experience, including negative results,</strong> are encouraged when they provide evidence of where, why, and under what conditions a method succeeds or fails.</p>
 
     <div class="sec-head" style="margin-top:64px">
       <div class="eyebrow">Motivation</div>
-      <h2>Four gaps between benchmarks and practice</h2>
-      <p class="lead">A metric that performs well on a general-purpose benchmark may be inadequate for a specific task: it may fail to distinguish near-identical candidates, penalize plausible restorations, overlook semantically incorrect or physically implausible generations, or prove too costly for real-time deployment.</p>
+      <h2>Key challenges in visual quality assessment</h2>
+      <p class="lead">Traditional quality metrics often emphasize pixel-level fidelity or perceptual similarity, while real-world assessment may also require judgments about visual realism, semantic correctness, physical plausibility, and consistency with user intent. Models that perform well on established benchmarks may not generalize to new content, processing pipelines, or generative paradigms.</p>
     </div>
     <table class="gaps">
-      <thead><tr><th>Gap</th><th>What benchmark-based evaluation emphasizes</th><th>What a specific application requires</th></tr></thead>
+      <thead><tr><th>Challenge</th><th>Conventional assessment</th><th>Emerging needs</th></tr></thead>
       <tbody>
-        <tr><td>Decision</td><td>Correlation with subjective quality scores aggregated over a test set</td><td>Fine-grained discrimination between similar candidates; reliable thresholds for acceptance and rejection; consistent decisions across content, devices, and viewing conditions</td></tr>
-        <tr><td>Content</td><td>General-purpose perceptual quality across diverse images and videos</td><td>Task-specific criteria: fidelity and naturalness in restoration; realism, semantic consistency, and consistency with user intent in generation; temporal and physical consistency in generated videos; authentic capture and processing artifacts; intended effects such as film grain, bokeh, and stylization; HDR or ultra-high-resolution content</td></tr>
-        <tr><td>Role</td><td>Passive scoring of a fixed test set</td><td>Integration into operational pipelines as a filter, user or encoder feedback signal, or training loss or reward, with robustness to optimization against the metric</td></tr>
-        <tr><td>Cost</td><td>Predictive accuracy as the primary criterion</td><td>Practical computational and memory budgets, low latency, calibrated confidence, and interpretable outputs that support actionable decisions</td></tr>
+        <tr><td>Human perception</td><td>Predicting subjective quality scores or perceptual similarity</td><td>Better alignment with human visual perception; understanding differences between human and machine judgments; modeling perceptual preferences and observer variability</td></tr>
+        <tr><td>Quality dimensions</td><td>Emphasis on distortion, fidelity, or general perceptual realism</td><td>Joint assessment of fidelity, realism, semantic correctness, physical plausibility, and consistency with user intent across different visual tasks</td></tr>
+        <tr><td>Task generalization</td><td>Evaluation on predefined datasets and established benchmarks</td><td>Reliable assessment across diverse content, image and video processing pipelines, generative models, and emerging visual applications</td></tr>
+        <tr><td>Assessment in the loop</td><td>Quality prediction as a standalone evaluation step</td><td>Integration into image processing and generative systems for model optimization, output selection, editing guidance, and reliable evaluation of generated content</td></tr>
       </tbody>
     </table>
   </div>
@@ -269,25 +276,25 @@ footer a{color:#dbe9ee}
     <div class="sec-head">
       <div class="eyebrow">Call for Papers</div>
       <h2>Submit your work</h2>
-      <p class="lead">We invite submissions to two <strong>non-archival</strong> tracks. Accepted work will not appear in the CVPR 2027 Workshops proceedings, so authors can publish expanded versions elsewhere.</p>
+      <p class="lead">We invite submissions through two <strong>non-archival</strong> tracks. Accepted submissions from both tracks will be presented at the workshop but will not appear in the CVPR 2027 Workshops proceedings, allowing authors to submit expanded versions of their work to other venues.</p>
     </div>
     <div class="tracks">
       <div class="card track">
         <span class="tag">Track 1</span>
         <h3>Published Work</h3>
-        <p>Papers recently accepted at peer-reviewed venues. Submissions must cite the original publication, and presenting them must comply with the original publisher's copyright terms.</p>
+        <p>Papers previously published or accepted at peer-reviewed venues. Submissions must cite the original publication, and their presentation must comply with the original publisher's copyright terms.</p>
       </div>
       <div class="card track">
         <span class="tag">Track 2</span>
         <h3>Novel Work</h3>
-        <p>Unpublished contributions, as full papers (up to 8 pages, excluding references) or extended abstracts (up to 2 pages).</p>
+        <p>Unpublished contributions submitted as full papers (up to 8 pages, excluding references) or extended abstracts (up to 2 pages, excluding references).</p>
       </div>
     </div>
     <ul class="cfp-list">
       <li><strong>Submission:</strong> via OpenReview (link will be posted here when the call opens).</li>
-      <li><strong>Presentation:</strong> four accepted papers will be presented as spotlight talks during the workshop.</li>
-      <li><strong>Review criteria:</strong> novelty and technical rigor, and how clearly each submission connects its quality assessment method to the decision, system, or practical constraint it serves.</li>
-      <li><strong>Ethics:</strong> authors are encouraged to report informed-consent procedures and participant compensation for subjective studies, and to respect the licenses, privacy, and usage restrictions of the images they use.</li>
+      <li><strong>Presentation:</strong> we anticipate accepting four papers for spotlight presentations.</li>
+      <li><strong>Review criteria:</strong> novelty, technical rigor, and relevance, with particular attention to the contribution to visual quality assessment and the connection to human perception, visual processing, or generative vision.</li>
+      <li><strong>Ethics:</strong> authors are encouraged to report informed-consent procedures and participant compensation in subjective studies, and to respect image licenses, privacy requirements, and applicable data usage restrictions.</li>
     </ul>
   </div>
 </section>
@@ -299,14 +306,14 @@ footer a{color:#dbe9ee}
       <h2>Important dates</h2>
     </div>
     <ol class="timeline">
-      <li><div class="d">15 Jan 2027</div><div class="m">Call for papers opens</div></li>
+      <li><div class="d">15 Jan 2027</div><div class="m">Website launch and call for papers opens</div></li>
       <li class="key"><div class="d">10 Apr 2027</div><div class="m">Submission deadline (both tracks)</div></li>
       <li><div class="d">24 Apr 2027</div><div class="m">Review deadline</div></li>
       <li class="key"><div class="d">1 May 2027</div><div class="m">Decisions announced</div></li>
       <li><div class="d">7 May 2027</div><div class="m">Program-guide abstract due (CVPR)</div></li>
       <li class="key"><div class="d">20 or 21 Jun 2027</div><div class="m">Workshop day (TBC)</div></li>
     </ol>
-    <p class="small">All deadlines are Anywhere on Earth (AoE) unless they follow the CVPR conference schedule.</p>
+    <p class="small">Dates identified as CVPR deadlines follow the conference schedule; all other deadlines are Anywhere on Earth (AoE).</p>
   </div>
 </section>
 
@@ -315,14 +322,15 @@ footer a{color:#dbe9ee}
     <div class="sec-head">
       <div class="eyebrow">Invited speakers</div>
       <h2>Speakers</h2>
-      <p class="lead">Our speakers span perceptual quality assessment, computational imaging, image and video generation, and quality evaluation in practical imaging systems.</p>
+      <p class="lead">Our six invited speakers bring expertise spanning human visual perception, perceptual quality assessment, computational imaging, image restoration, lighting and relighting, and image and video generation.</p>
     </div>
     <div class="speakers">
-      <a class="spk" href="https://www.colorado.edu/ecee/al-bovik" target="_blank" rel="noopener"><div class="ph"><span>AB</span><img src="assets/people/alan-bovik.jpg" alt="Prof. Alan Bovik" loading="lazy" onerror="this.remove()"></div><h3>Prof. Alan Bovik</h3><div class="aff">University of Colorado Boulder</div><div class="bio">Image and video quality assessment, subjective studies, streaming and UGC (LIVE lab).</div></a>
-      <a class="spk" href="https://ece.uwaterloo.ca/~z70wang/" target="_blank" rel="noopener"><div class="ph"><span>ZW</span><img src="assets/people/zhou-wang.jpg" alt="Prof. Zhou Wang" loading="lazy" onerror="this.remove()"></div><h3>Prof. Zhou Wang</h3><div class="aff">University of Waterloo</div><div class="bio">Perceptual quality assessment and quality-driven optimization of visual systems.</div></a>
-      <a class="spk" href="https://kedema.org/" target="_blank" rel="noopener"><div class="ph"><span>KM</span><img src="assets/people/kede-ma.jpg" alt="Prof. Kede Ma" loading="lazy" onerror="this.remove()"></div><h3>Prof. Kede Ma</h3><div class="aff">City University of Hong Kong</div><div class="bio">Image quality assessment and the comparison and generalization of quality models.</div></a>
-      <a class="spk" href="https://richzhang.github.io/" target="_blank" rel="noopener"><div class="ph"><span>RZ</span><img src="assets/people/richard-zhang.jpg" alt="Dr. Richard Zhang" loading="lazy" onerror="this.remove()"></div><h3>Dr. Richard Zhang</h3><div class="aff">Adobe Research</div><div class="bio">Image synthesis and editing, perceptual similarity, and evaluation of generative models.</div></a>
-      <a class="spk" href="https://vision.gel.ulaval.ca/~jflalonde/" target="_blank" rel="noopener"><div class="ph"><span>JL</span><img src="assets/people/jean-francois-lalonde.jpg" alt="Prof. Jean-François Lalonde" loading="lazy" onerror="this.remove()"></div><h3>Prof. Jean-François Lalonde</h3><div class="aff">Université Laval</div><div class="bio">Lighting estimation, relighting and physically based image editing for AR.</div></a>
+      <a class="spk" href="https://vision.gel.ulaval.ca/~jflalonde/" target="_blank" rel="noopener"><div class="ph"><span>JL</span><img src="assets/people/jean-francois-lalonde.jpg" alt="Prof. Jean-François Lalonde" loading="lazy" onerror="this.remove()"></div><h3>Prof. Jean-François Lalonde</h3><div class="aff">Université Laval</div><div class="bio">Lighting estimation, relighting and physically based image editing for applications such as augmented reality.</div></a>
+      <a class="spk" href="https://kedema.org/" target="_blank" rel="noopener"><div class="ph"><span>KM</span><img src="assets/people/kede-ma.jpg" alt="Prof. Kede Ma" loading="lazy" onerror="this.remove()"></div><h3>Prof. Kede Ma</h3><div class="aff">City University of Hong Kong</div><div class="bio">Perceptual image processing and computational vision, with a focus on image quality assessment and the generalization of quality models.</div></a>
+      <a class="spk" href="https://faculty.ucmerced.edu/mhyang/" target="_blank" rel="noopener"><div class="ph"><span>MY</span><img src="assets/people/ming-hsuan-yang.jpg" alt="Prof. Ming-Hsuan Yang" loading="lazy" onerror="this.remove()"></div><h3>Prof. Ming-Hsuan Yang</h3><div class="aff">University of California, Merced</div><div class="bio">Computer vision and machine learning, including visual tracking, image restoration and enhancement, and image and video generation.</div></a>
+      <a class="spk" href="https://richzhang.github.io/" target="_blank" rel="noopener"><div class="ph"><span>RZ</span><img src="assets/people/richard-zhang.jpg" alt="Dr. Richard Zhang" loading="lazy" onerror="this.remove()"></div><h3>Dr. Richard Zhang</h3><div class="aff">Adobe Research</div><div class="bio">Image synthesis and editing, perceptual similarity, and the evaluation of generative models.</div></a>
+      <a class="spk" href="https://ziqihuangg.github.io/" target="_blank" rel="noopener"><div class="ph"><span>ZH</span><img src="assets/people/ziqi-huang.jpg" alt="Dr. Ziqi Huang" loading="lazy" onerror="this.remove()"></div><h3>Dr. Ziqi Huang</h3><div class="aff">Nanyang Technological University</div><div class="bio">Image and video generation and editing, physical reasoning and world models, and evaluation of generative models.</div></a>
+      <a class="spk" href="https://robertgeirhos.com/" target="_blank" rel="noopener"><div class="ph"><span>RG</span><img src="assets/people/robert-geirhos.jpg" alt="Dr. Robert Geirhos" loading="lazy" onerror="this.remove()"></div><h3>Dr. Robert Geirhos</h3><div class="aff">Google DeepMind</div><div class="bio">Visual intelligence with video models, and comparing deep neural networks with human vision.</div></a>
     </div>
   </div>
 </section>
@@ -332,7 +340,7 @@ footer a{color:#dbe9ee}
     <div class="sec-head">
       <div class="eyebrow">Program</div>
       <h2>Preliminary schedule</h2>
-      <p class="lead">Afternoon session (local time). Questions can be submitted throughout the workshop via a QR code shown between talks; the panel moderator draws on them for the closing discussion.</p>
+      <p class="lead">Afternoon session (local time). A QR code shown between talks links to a question form that stays open throughout the workshop; the panel moderator draws on these questions for the closing discussion.</p>
     </div>
     <div class="sched">
       <div class="row"><div class="t">13:00</div><div class="s">Opening remarks</div><div class="dur">10 min</div></div>
@@ -340,11 +348,16 @@ footer a{color:#dbe9ee}
       <div class="row talk"><div class="t">13:40</div><div class="s">Invited talk 2</div><div class="dur">30 min</div></div>
       <div class="row talk"><div class="t">14:10</div><div class="s">Invited talk 3</div><div class="dur">30 min</div></div>
       <div class="row spot"><div class="t">14:40</div><div class="s">Paper spotlights<small>Four accepted papers, 5 minutes each</small></div><div class="dur">20 min</div></div>
-      <div class="row break"><div class="t">15:00</div><div class="s">Coffee break<small>Meet the spotlight authors</small></div><div class="dur">20 min</div></div>
+      <div class="row break"><div class="t">15:00</div><div class="s">Coffee break<small>Continue discussions with the spotlight authors</small></div><div class="dur">20 min</div></div>
       <div class="row talk"><div class="t">15:20</div><div class="s">Invited talk 4</div><div class="dur">30 min</div></div>
       <div class="row talk"><div class="t">15:50</div><div class="s">Invited talk 5</div><div class="dur">30 min</div></div>
       <div class="row talk"><div class="t">16:20</div><div class="s">Invited talk 6</div><div class="dur">30 min</div></div>
       <div class="row"><div class="t">16:50</div><div class="s">Closing panel with invited speakers</div><div class="dur">30 min</div></div>
+    </div>
+    <div class="panel">
+      <span class="tag">Closing panel</span>
+      <h3>Rethinking Visual Quality: What Should We Measure and Why?</h3>
+      <p>How should visual quality be defined and evaluated across different tasks? Do current metrics adequately reflect human perception? How does generative AI challenge conventional quality criteria, and how can subjective evaluation and standardization shape the future of visual quality assessment?</p>
     </div>
   </div>
 </section>
@@ -382,7 +395,7 @@ footer a{color:#dbe9ee}
 
 <footer>
   <div class="wrap">
-    <span>QAP 2027 · Quality Assessment in Practice · Workshop at CVPR 2027</span>
+    <span>VQAP 2027 · Visual Quality Assessment in Practice · Workshop at CVPR 2027</span>
     <span><a href="#top">Back to top ↑</a></span>
   </div>
 </footer>
