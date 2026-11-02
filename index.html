@@ -120,18 +120,27 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;heig
 .small{font-size:.88rem;color:var(--muted);margin-top:16px}
 
 /* people */
-.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.person{display:flex;gap:16px;align-items:flex-start}
-.avatar{flex:0 0 64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:1.15rem;letter-spacing:.02em;background:linear-gradient(135deg,var(--accent),var(--accent-2));object-fit:cover}
-.person h3 a{color:var(--ink)}
-.person .aff{color:var(--accent);font-size:.88rem;font-weight:500;margin:2px 0 6px}
-.person p{margin:0;color:var(--ink-2);font-size:.92rem}
-.org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px}
-.org{text-align:center;padding:26px 18px}
-.org .avatar{margin:0 auto 14px;width:84px;height:84px;flex-basis:84px;font-size:1.4rem}
-.org .aff{color:var(--muted);font-size:.88rem;margin-top:4px}
-.org h3 a{color:var(--ink)}
+.speakers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 
+@media (max-width:700px){.speakers{grid-template-columns:repeat(2,1fr);gap:16px}}
+.spk{display:block;color:var(--ink)}
+.spk:hover{text-decoration:none}
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;letter-spacing:.03em}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.spk .ph{aspect-ratio:1/1;border-radius:14px;font-size:2.2rem;margin-bottom:14px;box-shadow:0 6px 20px rgba(15,42,61,.10)}
+.spk:hover .ph img{transform:scale(1.05)}
+.spk h3{font-size:1.02rem}
+.spk .aff{color:var(--muted);font-size:.87rem;margin-top:3px;line-height:1.4}
+.spk .bio{color:var(--ink-2);font-size:.88rem;margin-top:8px;line-height:1.5}
+@media (max-width:700px){.spk .bio{display:none}}
+.org-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.org-grid .org{flex:0 1 calc(25% - 14px);min-width:180px}
+@media (max-width:700px){.org-grid .org{flex-basis:calc(50% - 9px);min-width:0}}
+.org{text-align:center;padding:28px 18px;transition:transform .2s ease,box-shadow .2s ease}
+.org:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(15,42,61,.08)}
+.org .ph{width:112px;height:112px;border-radius:50%;margin:0 auto 16px;font-size:1.7rem}
+.org .aff{color:var(--muted);font-size:.87rem;margin-top:4px;line-height:1.4}
+.org h3 a{color:var(--ink)}
 /* schedule */
 .sched{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .row{display:grid;grid-template-columns:110px 1fr auto;gap:18px;padding:15px 22px;border-bottom:1px solid var(--line);align-items:center}
@@ -307,13 +316,13 @@ footer a{color:#dbe9ee}
       <h2>Speakers</h2>
       <p class="lead">Our speakers span perceptual quality assessment, computational imaging, image and video generation, and quality evaluation in practical imaging systems.</p>
     </div>
-    <div class="people">
-      <div class="card person"><div class="avatar">AB</div><div><h3><a href="https://www.colorado.edu/ecee/al-bovik" target="_blank" rel="noopener">Alan Bovik</a></h3><div class="aff">University of Colorado Boulder</div><p>Provost's Chair in Engineering and director of the Laboratory for Image and Video Engineering (LIVE). Long-standing work on image and video quality assessment, subjective quality studies, and their use in streaming and user-generated content.</p></div></div>
-      <div class="card person"><div class="avatar">ZW</div><div><h3><a href="https://ece.uwaterloo.ca/~z70wang/" target="_blank" rel="noopener">Zhou Wang</a></h3><div class="aff">University of Waterloo</div><p>Professor and Tier 1 Canada Research Chair. Image and video processing, coding and communication, and visual perception, with a focus on perceptual quality assessment and quality-driven optimization of visual systems.</p></div></div>
-      <div class="card person"><div class="avatar">KM</div><div><h3><a href="https://kedema.org/" target="_blank" rel="noopener">Kede Ma</a></h3><div class="aff">City University of Hong Kong</div><p>Associate Professor. Perceptual image processing, computational vision and photography, with a focus on image quality assessment and the comparison and generalization of quality models.</p></div></div>
-      <div class="card person"><div class="avatar">RZ</div><div><h3><a href="https://richzhang.github.io/" target="_blank" rel="noopener">Richard Zhang</a></h3><div class="aff">Adobe Research</div><p>Senior Research Scientist. Computer vision, machine learning and graphics, with a focus on image synthesis and editing, perceptual similarity, and the evaluation of generative models.</p></div></div>
-      <div class="card person"><div class="avatar">JL</div><div><h3><a href="https://vision.gel.ulaval.ca/~jflalonde/" target="_blank" rel="noopener">Jean-François Lalonde</a></h3><div class="aff">Université Laval</div><p>Professor. Research at the intersection of computer vision and graphics, with a focus on lighting estimation, relighting and physically based image editing for applications such as augmented reality.</p></div></div>
-      <div class="card person"><div class="avatar">ML</div><div><h3><a href="https://xlim-sic.labo.univ-poitiers.fr/larabi/?lang=en" target="_blank" rel="noopener">Mohamed-Chaker Larabi</a></h3><div class="aff">Université de Poitiers · XLIM</div><p>Full Professor, leading the ASALI research axis. Quality assessment, compression, optimization and enhancement across content types such as immersive media; contributor to JPEG, MPEG and AOMedia standardization.</p></div></div>
+    <div class="speakers">
+      <a class="spk" href="https://www.colorado.edu/ecee/al-bovik" target="_blank" rel="noopener"><div class="ph"><span>AB</span><img src="assets/people/alan-bovik.jpg" alt="Prof. Alan Bovik" loading="lazy" onerror="this.remove()"></div><h3>Prof. Alan Bovik</h3><div class="aff">University of Colorado Boulder</div><div class="bio">Image and video quality assessment, subjective studies, streaming and UGC (LIVE lab).</div></a>
+      <a class="spk" href="https://ece.uwaterloo.ca/~z70wang/" target="_blank" rel="noopener"><div class="ph"><span>ZW</span><img src="assets/people/zhou-wang.jpg" alt="Prof. Zhou Wang" loading="lazy" onerror="this.remove()"></div><h3>Prof. Zhou Wang</h3><div class="aff">University of Waterloo</div><div class="bio">Perceptual quality assessment and quality-driven optimization of visual systems.</div></a>
+      <a class="spk" href="https://kedema.org/" target="_blank" rel="noopener"><div class="ph"><span>KM</span><img src="assets/people/kede-ma.jpg" alt="Prof. Kede Ma" loading="lazy" onerror="this.remove()"></div><h3>Prof. Kede Ma</h3><div class="aff">City University of Hong Kong</div><div class="bio">Image quality assessment and the comparison and generalization of quality models.</div></a>
+      <a class="spk" href="https://richzhang.github.io/" target="_blank" rel="noopener"><div class="ph"><span>RZ</span><img src="assets/people/richard-zhang.jpg" alt="Dr. Richard Zhang" loading="lazy" onerror="this.remove()"></div><h3>Dr. Richard Zhang</h3><div class="aff">Adobe Research</div><div class="bio">Image synthesis and editing, perceptual similarity, and evaluation of generative models.</div></a>
+      <a class="spk" href="https://vision.gel.ulaval.ca/~jflalonde/" target="_blank" rel="noopener"><div class="ph"><span>JL</span><img src="assets/people/jean-francois-lalonde.jpg" alt="Prof. Jean-François Lalonde" loading="lazy" onerror="this.remove()"></div><h3>Prof. Jean-François Lalonde</h3><div class="aff">Université Laval</div><div class="bio">Lighting estimation, relighting and physically based image editing for AR.</div></a>
+      <a class="spk" href="https://xlim-sic.labo.univ-poitiers.fr/larabi/?lang=en" target="_blank" rel="noopener"><div class="ph"><span>ML</span><img src="assets/people/mohamed-chaker-larabi.jpg" alt="Prof. Mohamed-Chaker Larabi" loading="lazy" onerror="this.remove()"></div><h3>Prof. Mohamed-Chaker Larabi</h3><div class="aff">Université de Poitiers · XLIM</div><div class="bio">Quality assessment, compression and immersive media; JPEG, MPEG and AOMedia standardization.</div></a>
     </div>
   </div>
 </section>
@@ -347,11 +356,13 @@ footer a{color:#dbe9ee}
       <h2>Organizers</h2>
     </div>
     <div class="org-grid">
-      <div class="card org"><div class="avatar">SS</div><h3>Shaolin Su</h3><div class="aff">Computer Vision Center (CVC), Barcelona</div></div>
-      <div class="card org"><div class="avatar">LS</div><h3><a href="https://ahupujr.github.io/" target="_blank" rel="noopener">Lei Sun</a></h3><div class="aff">INSAIT, Sofia University</div></div>
-      <div class="card org"><div class="avatar">DX</div><h3>Danna Xue</h3><div class="aff">Computer Vision Center (CVC), Barcelona</div></div>
-      <div class="card org"><div class="avatar">JV</div><h3>Javier Vazquez-Corral</h3><div class="aff">Universitat Autònoma de Barcelona &amp; CVC</div></div>
-      <div class="card org"><div class="avatar">LV</div><h3>Luc Van Gool</h3><div class="aff">INSAIT, Sofia University</div></div>
+      <div class="card org"><div class="ph"><span>SS</span><img src="assets/people/shaolin-su.jpg" alt="Dr. Shaolin Su" loading="lazy" onerror="this.remove()"></div><h3>Dr. Shaolin Su</h3><div class="aff">Computer Vision Center (CVC), Barcelona</div></div>
+      <div class="card org"><div class="ph"><span>LS</span><img src="assets/people/lei-sun.jpg" alt="Dr. Lei Sun" loading="lazy" onerror="this.remove()"></div><h3><a href="https://ahupujr.github.io/" target="_blank" rel="noopener">Dr. Lei Sun</a></h3><div class="aff">INSAIT, Sofia University</div></div>
+      <div class="card org"><div class="ph"><span>DX</span><img src="assets/people/danna-xue.jpg" alt="Dr. Danna Xue" loading="lazy" onerror="this.remove()"></div><h3>Dr. Danna Xue</h3><div class="aff">Computer Vision Center (CVC), Barcelona</div></div>
+      <div class="card org"><div class="ph"><span>JG</span><img src="assets/people/jinjin-gu.jpg" alt="Dr. Jinjin Gu" loading="lazy" onerror="this.remove()"></div><h3><a href="https://www.jasongt.com/" target="_blank" rel="noopener">Dr. Jinjin Gu</a></h3><div class="aff">INSAIT, Sofia University</div></div>
+      <div class="card org"><div class="ph"><span>JV</span><img src="assets/people/javier-vazquez-corral.jpg" alt="Prof. Javier Vazquez-Corral" loading="lazy" onerror="this.remove()"></div><h3>Prof. Javier Vazquez-Corral</h3><div class="aff">Universitat Autònoma de Barcelona &amp; CVC</div></div>
+      <div class="card org"><div class="ph"><span>CL</span><img src="assets/people/chaker-larabi.jpg" alt="Prof. Chaker Larabi" loading="lazy" onerror="this.remove()"></div><h3><a href="https://xlim-sic.labo.univ-poitiers.fr/larabi/?lang=en" target="_blank" rel="noopener">Prof. Chaker Larabi</a></h3><div class="aff">Université de Poitiers · XLIM</div></div>
+      <div class="card org"><div class="ph"><span>LV</span><img src="assets/people/luc-van-gool.jpg" alt="Prof. Luc Van Gool" loading="lazy" onerror="this.remove()"></div><h3>Prof. Luc Van Gool</h3><div class="aff">INSAIT, Sofia University</div></div>
     </div>
   </div>
 </section>
