@@ -120,9 +120,10 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;heig
 .small{font-size:.88rem;color:var(--muted);margin-top:16px}
 
 /* people */
-.speakers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.speakers{display:flex;flex-wrap:wrap;justify-content:center;gap:26px}
+.speakers .spk{flex:0 1 calc(33.333% - 18px)}
 
-@media (max-width:700px){.speakers{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media (max-width:700px){.speakers{gap:16px}.speakers .spk{flex-basis:calc(50% - 8px)}}
 .spk{display:block;color:var(--ink)}
 .spk:hover{text-decoration:none}
 .ph{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;letter-spacing:.03em}
@@ -322,7 +323,6 @@ footer a{color:#dbe9ee}
       <a class="spk" href="https://kedema.org/" target="_blank" rel="noopener"><div class="ph"><span>KM</span><img src="assets/people/kede-ma.jpg" alt="Prof. Kede Ma" loading="lazy" onerror="this.remove()"></div><h3>Prof. Kede Ma</h3><div class="aff">City University of Hong Kong</div><div class="bio">Image quality assessment and the comparison and generalization of quality models.</div></a>
       <a class="spk" href="https://richzhang.github.io/" target="_blank" rel="noopener"><div class="ph"><span>RZ</span><img src="assets/people/richard-zhang.jpg" alt="Dr. Richard Zhang" loading="lazy" onerror="this.remove()"></div><h3>Dr. Richard Zhang</h3><div class="aff">Adobe Research</div><div class="bio">Image synthesis and editing, perceptual similarity, and evaluation of generative models.</div></a>
       <a class="spk" href="https://vision.gel.ulaval.ca/~jflalonde/" target="_blank" rel="noopener"><div class="ph"><span>JL</span><img src="assets/people/jean-francois-lalonde.jpg" alt="Prof. Jean-François Lalonde" loading="lazy" onerror="this.remove()"></div><h3>Prof. Jean-François Lalonde</h3><div class="aff">Université Laval</div><div class="bio">Lighting estimation, relighting and physically based image editing for AR.</div></a>
-      <a class="spk" href="https://xlim-sic.labo.univ-poitiers.fr/larabi/?lang=en" target="_blank" rel="noopener"><div class="ph"><span>ML</span><img src="assets/people/mohamed-chaker-larabi.jpg" alt="Prof. Mohamed-Chaker Larabi" loading="lazy" onerror="this.remove()"></div><h3>Prof. Mohamed-Chaker Larabi</h3><div class="aff">Université de Poitiers · XLIM</div><div class="bio">Quality assessment, compression and immersive media; JPEG, MPEG and AOMedia standardization.</div></a>
     </div>
   </div>
 </section>
