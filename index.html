@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QAP 2027 · Quality Assessment in Practice · CVPR 2027 Workshop</title>
+<meta name="description" content="Quality Assessment in Practice: From Benchmarks to Deployment. A half-day workshop at CVPR 2027 on application-driven image and video quality assessment.">
+<meta property="og:title" content="QAP 2027 · Quality Assessment in Practice (CVPR 2027 Workshop)">
+<meta property="og:description" content="From benchmarks to deployment: building, validating and deploying trustworthy image and video quality assessment.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f2a3d'/%3E%3Crect x='6' y='18' width='4' height='8' rx='1' fill='%235fb3a8'/%3E%3Crect x='14' y='12' width='4' height='14' rx='1' fill='%2389c9a0'/%3E%3Crect x='22' y='6' width='4' height='20' rx='1' fill='%23f2c14e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f2a3d; --ink-2:#3b5363; --muted:#6a7f8c; --line:#e3e9ee;
+  --bg:#ffffff; --bg-2:#f5f8fa; --accent:#1f7a8c; --accent-2:#5fb3a8; --gold:#f2c14e;
+  --radius:14px; --max:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.25;margin:0}
+h2{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:2rem;letter-spacing:-.01em;margin-bottom:.4rem}
+h3{font-size:1.05rem;font-weight:600}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.lead{color:var(--ink-2);font-size:1.08rem;max-width:760px}
+section{padding:80px 0;border-top:1px solid var(--line)}
+section.alt{background:var(--bg-2)}
+@media (max-width:600px){section{padding:56px 0}.hero{padding:64px 0 60px}h2{font-size:1.7rem}.wrap{padding:0 16px}}
+.sec-head{margin-bottom:36px}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.6) blur(10px);-webkit-backdrop-filter:saturate(1.6) blur(10px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+.brand:hover{text-decoration:none}
+.brand svg{width:26px;height:26px}
+.brand small{font-weight:500;color:var(--muted);letter-spacing:0}
+.links{display:flex;gap:4px}
+.links a{color:var(--ink-2);font-size:.92rem;font-weight:500;padding:8px 12px;border-radius:8px}
+.links a:hover{background:var(--bg-2);text-decoration:none;color:var(--ink)}
+.menu-btn{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--ink)}
+@media (max-width:860px){
+  .menu-btn{display:block}
+  .links{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:8px 16px 16px}
+  .links.open{display:flex}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#0f2a3d 0%,#14394f 55%,#1b4a5c 100%);color:#fff;padding:96px 0 88px;border-top:0}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(2.2rem,5.2vw,3.6rem);letter-spacing:-.02em;margin:14px 0 10px;max-width:820px}
+.hero .sub{font-size:clamp(1.1rem,2.2vw,1.4rem);color:#cfe3ea;font-weight:500;margin:0 0 28px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:999px;font-size:.92rem;color:#e8f2f5}
+.chip svg{width:16px;height:16px;opacity:.85}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.95rem}
+.btn:hover{text-decoration:none}
+.btn.primary{background:var(--gold);color:#1a2a33}
+.btn.primary:hover{background:#f6cd6b}
+.btn.ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+/* quality strip visual */
+.strip{position:absolute;right:-40px;top:50%;transform:translateY(-50%);display:grid;grid-template-columns:repeat(6,54px);gap:8px;opacity:.9}
+.strip span{height:54px;border-radius:10px;background:linear-gradient(135deg,var(--accent-2),var(--gold))}
+@media (max-width:1100px){.strip{display:none}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:start}
+.about-grid p{margin:0 0 1rem;color:var(--ink-2)}
+.facts{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.facts dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:.94rem}
+.facts dt{color:var(--muted);font-weight:500}
+.facts dd{margin:0;font-weight:500}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:28px}}
+
+/* topics */
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.topic .num{display:inline-flex;width:30px;height:30px;border-radius:8px;align-items:center;justify-content:center;background:#e6f3f1;color:var(--accent);font-weight:700;font-size:.9rem;margin-bottom:12px}
+.topic p{margin:.4rem 0 0;color:var(--ink-2);font-size:.95rem}
+.note{margin-top:22px;color:var(--ink-2);font-size:.97rem;max-width:860px}
+
+/* gaps table */
+.gaps{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:.95rem}
+.gaps th,.gaps td{padding:16px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.gaps tr:last-child td{border-bottom:0}
+.gaps thead th{background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;letter-spacing:.03em}
+.gaps td:first-child{font-weight:700;color:var(--accent);white-space:nowrap}
+.gaps td:nth-child(2){color:var(--muted);width:30%}
+@media (max-width:700px){
+  .gaps thead{display:none}
+  .gaps,.gaps tbody,.gaps tr,.gaps td{display:block;width:100%}
+  .gaps tr{border-bottom:1px solid var(--line);padding:6px 0}
+  .gaps td{border:0;padding:6px 18px}
+  .gaps td:nth-child(2)::before{content:"Benchmarks emphasize: ";font-weight:600;color:var(--ink-2)}
+  .gaps td:nth-child(3)::before{content:"Applications require: ";font-weight:600;color:var(--ink-2)}
+}
+
+/* cfp */
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px}
+@media (max-width:760px){.tracks{grid-template-columns:1fr}}
+.track .tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.track p{margin:.5rem 0 0;color:var(--ink-2);font-size:.95rem}
+.cfp-list{margin:0;padding-left:1.2rem;color:var(--ink-2)}
+.cfp-list li{margin:.35rem 0}
+
+/* dates */
+.timeline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.timeline li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;position:relative}
+.timeline li::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:2px;background:var(--accent-2)}
+.timeline .d{font-weight:700;font-size:1.05rem}
+.timeline .m{color:var(--ink-2);font-size:.92rem;margin-top:4px}
+.timeline li.key::before{background:var(--gold)}
+.small{font-size:.88rem;color:var(--muted);margin-top:16px}
+
+/* people */
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.person{display:flex;gap:16px;align-items:flex-start}
+.avatar{flex:0 0 64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:1.15rem;letter-spacing:.02em;background:linear-gradient(135deg,var(--accent),var(--accent-2));object-fit:cover}
+.person h3 a{color:var(--ink)}
+.person .aff{color:var(--accent);font-size:.88rem;font-weight:500;margin:2px 0 6px}
+.person p{margin:0;color:var(--ink-2);font-size:.92rem}
+.org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px}
+.org{text-align:center;padding:26px 18px}
+.org .avatar{margin:0 auto 14px;width:84px;height:84px;flex-basis:84px;font-size:1.4rem}
+.org .aff{color:var(--muted);font-size:.88rem;margin-top:4px}
+.org h3 a{color:var(--ink)}
+
+/* schedule */
+.sched{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.row{display:grid;grid-template-columns:110px 1fr auto;gap:18px;padding:15px 22px;border-bottom:1px solid var(--line);align-items:center}
+.row:last-child{border-bottom:0}
+.row .t{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink-2)}
+.row .s{font-weight:500}
+.row .s small{display:block;color:var(--muted);font-weight:400;font-size:.88rem}
+.row .dur{color:var(--muted);font-size:.88rem}
+.row.talk .s::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:10px;vertical-align:middle}
+.row.break{background:#fbf7ec}
+.row.spot{background:#eef6f5}
+@media (max-width:560px){.row{grid-template-columns:70px 1fr;}.row .dur{display:none}}
+
+/* contact / footer */
+.contact{display:flex;flex-wrap:wrap;gap:18px}
+.contact .card{flex:1 1 280px}
+.contact .card a{font-weight:600}
+footer{background:var(--ink);color:#a9bfc9;padding:36px 0;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:#dbe9ee}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0f2a3d"/><rect x="6" y="18" width="4" height="8" rx="1" fill="#5fb3a8"/><rect x="14" y="12" width="4" height="14" rx="1" fill="#89c9a0"/><rect x="22" y="6" width="4" height="20" rx="1" fill="#f2c14e"/></svg>
+      QAP <small>@ CVPR 2027</small>
+    </a>
+    <button class="menu-btn" aria-label="Toggle menu" onclick="document.querySelector('.links').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="links" onclick="this.classList.remove('open')">
+      <a href="#about">About</a>
+      <a href="#topics">Topics</a>
+      <a href="#cfp">Call for Papers</a>
+      <a href="#dates">Dates</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#organizers">Organizers</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="strip" aria-hidden="true">
+    <span style="filter:blur(9px);opacity:.25"></span><span style="filter:blur(7px);opacity:.35"></span><span style="filter:blur(5px);opacity:.5"></span><span style="filter:blur(3px);opacity:.65"></span><span style="filter:blur(1px);opacity:.82"></span><span></span>
+    <span style="filter:blur(8px);opacity:.3"></span><span style="filter:blur(6px);opacity:.4"></span><span style="filter:blur(4px);opacity:.55"></span><span style="filter:blur(2px);opacity:.7"></span><span style="filter:blur(.5px);opacity:.88"></span><span></span>
+    <span style="filter:blur(9px);opacity:.25"></span><span style="filter:blur(7px);opacity:.35"></span><span style="filter:blur(5px);opacity:.5"></span><span style="filter:blur(3px);opacity:.65"></span><span style="filter:blur(1px);opacity:.82"></span><span></span>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">CVPR 2027 Workshop · First Edition</div>
+    <h1>Quality Assessment in Practice</h1>
+    <p class="sub">From Benchmarks to Deployment</p>
+    <div class="meta">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>June 20 or 21, 2027 (TBC)</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Half day · Afternoon</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>In person, with recorded talks</span>
+    </div>
+    <div class="btns">
+      <a class="btn primary" href="#cfp">Call for Papers</a>
+      <a class="btn ghost" href="#schedule">Program</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">About the workshop</div>
+      <h2>Quality that informs a decision</h2>
+      <p>Quality assessment of images and videos is most valuable when it informs a decision: tuning a camera, optimizing compression and streaming, releasing a generative model, or filtering content at scale. Yet quality depends on the application, the content and the decision at hand, while most research still targets general-purpose metrics evaluated on a few benchmarks.</p>
+      <p>The <strong>Quality Assessment in Practice (QAP)</strong> workshop advances application-driven assessment: methods designed for specific tasks, validated under realistic conditions and deployed in real systems. Through invited talks, contributed papers and a panel, we explore how to build, validate and deploy trustworthy quality assessment.</p>
+      <p>A central question: <em>what does it take for a quality metric to be trusted when it drives a real decision?</em></p>
+    </div>
+    <aside class="facts" aria-label="Workshop at a glance">
+      <dl>
+        <dt>Venue</dt><dd>CVPR 2027</dd>
+        <dt>Format</dt><dd>In person, half day</dd>
+        <dt>Program</dt><dd>6 invited talks, 4 paper spotlights, closing panel</dd>
+        <dt>Papers</dt><dd>Non-archival; Published Work and Novel Work tracks</dd>
+        <dt>Recording</dt><dd>Talks and panel recorded and posted on the CVPR website</dd>
+        <dt>Contact</dt><dd><a href="#contact">Organizers</a></dd>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section id="topics" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Scope</div>
+      <h2>Topics of interest</h2>
+      <p class="lead">Submissions should connect a quality assessment method to a concrete application, decision, system, or deployment constraint. Topics include, but are not limited to:</p>
+    </div>
+    <div class="topics">
+      <div class="card topic"><span class="num">1</span><h3>Perceptually consistent assessment</h3><p>Predictions that agree with human judgment, including fine-grained differences in high-fidelity content and consistency across content, devices, and viewing conditions.</p></div>
+      <div class="card topic"><span class="num">2</span><h3>Generative and AI-enhanced content</h3><p>Assessment of restored, edited, and generated images and videos, including consistency with the user's intent and, for videos, temporal consistency of identities and objects and consistency with physical rules.</p></div>
+      <div class="card topic"><span class="num">3</span><h3>Quality models as optimization targets</h3><p>Using quality models as losses, rewards, and data filters, and keeping them robust when systems are optimized against them.</p></div>
+      <div class="card topic"><span class="num">4</span><h3>Multimodal and explainable assessment</h3><p>Vision-language models as quality judges, interpretable quality reports, and benchmarks for quality assessment.</p></div>
+      <div class="card topic"><span class="num">5</span><h3>Assessment in deployment</h3><p>Efficient and reliable quality assessment across smartphone photography, streaming, AR/VR, relighting, 3D reconstruction and novel-view synthesis, and machine-oriented tasks.</p></div>
+    </div>
+    <p class="note">We also welcome related perspectives on how quality assessment can be built, validated, and deployed for any application where visual quality matters. <strong>Deployment reports, including negative results, are welcome</strong> when they provide evidence of where, why, and under what conditions a quality assessment method succeeds or fails.</p>
+
+    <div class="sec-head" style="margin-top:64px">
+      <div class="eyebrow">Motivation</div>
+      <h2>Four gaps between benchmarks and practice</h2>
+      <p class="lead">A metric that performs well on a general-purpose benchmark may be inadequate for a specific task: it may fail to distinguish near-identical candidates, penalize plausible restorations, overlook semantically incorrect or physically implausible generations, or prove too costly for real-time deployment.</p>
+    </div>
+    <table class="gaps">
+      <thead><tr><th>Gap</th><th>What benchmark-based evaluation emphasizes</th><th>What a specific application requires</th></tr></thead>
+      <tbody>
+        <tr><td>Decision</td><td>Correlation with subjective quality scores aggregated over a test set</td><td>Fine-grained discrimination between similar candidates; reliable thresholds for acceptance and rejection; consistent decisions across content, devices, and viewing conditions</td></tr>
+        <tr><td>Content</td><td>General-purpose perceptual quality across diverse images and videos</td><td>Task-specific criteria: fidelity and naturalness in restoration; realism, semantic consistency, and consistency with user intent in generation; temporal and physical consistency in generated videos; authentic capture and processing artifacts; intended effects such as film grain, bokeh, and stylization; HDR or ultra-high-resolution content</td></tr>
+        <tr><td>Role</td><td>Passive scoring of a fixed test set</td><td>Integration into operational pipelines as a filter, user or encoder feedback signal, or training loss or reward, with robustness to optimization against the metric</td></tr>
+        <tr><td>Cost</td><td>Predictive accuracy as the primary criterion</td><td>Practical computational and memory budgets, low latency, calibrated confidence, and interpretable outputs that support actionable decisions</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="cfp">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Call for Papers</div>
+      <h2>Submit your work</h2>
+      <p class="lead">We invite submissions to two <strong>non-archival</strong> tracks. Accepted work will not appear in the CVPR 2027 Workshops proceedings, so authors can publish expanded versions elsewhere.</p>
+    </div>
+    <div class="tracks">
+      <div class="card track">
+        <span class="tag">Track 1</span>
+        <h3>Published Work</h3>
+        <p>Papers recently accepted at peer-reviewed venues. Submissions must cite the original publication, and presenting them must comply with the original publisher's copyright terms.</p>
+      </div>
+      <div class="card track">
+        <span class="tag">Track 2</span>
+        <h3>Novel Work</h3>
+        <p>Unpublished contributions, as full papers (up to 8 pages, excluding references) or extended abstracts (up to 2 pages).</p>
+      </div>
+    </div>
+    <ul class="cfp-list">
+      <li><strong>Submission:</strong> via OpenReview (link will be posted here when the call opens).</li>
+      <li><strong>Presentation:</strong> four accepted papers will be presented as spotlight talks during the workshop.</li>
+      <li><strong>Review criteria:</strong> novelty and technical rigor, and how clearly each submission connects its quality assessment method to the decision, system, or practical constraint it serves.</li>
+      <li><strong>Ethics:</strong> authors are encouraged to report informed-consent procedures and participant compensation for subjective studies, and to respect the licenses, privacy, and usage restrictions of the images they use.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="dates" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Timeline</div>
+      <h2>Important dates</h2>
+    </div>
+    <ol class="timeline">
+      <li><div class="d">15 Jan 2027</div><div class="m">Call for papers opens</div></li>
+      <li class="key"><div class="d">10 Apr 2027</div><div class="m">Submission deadline (both tracks)</div></li>
+      <li><div class="d">24 Apr 2027</div><div class="m">Review deadline</div></li>
+      <li class="key"><div class="d">1 May 2027</div><div class="m">Decisions announced</div></li>
+      <li><div class="d">7 May 2027</div><div class="m">Program-guide abstract due (CVPR)</div></li>
+      <li class="key"><div class="d">20 or 21 Jun 2027</div><div class="m">Workshop day (TBC)</div></li>
+    </ol>
+    <p class="small">All deadlines are Anywhere on Earth (AoE) unless they follow the CVPR conference schedule.</p>
+  </div>
+</section>
+
+<section id="speakers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Invited speakers</div>
+      <h2>Speakers</h2>
+      <p class="lead">Our speakers span perceptual quality assessment, computational imaging, image and video generation, and quality evaluation in practical imaging systems.</p>
+    </div>
+    <div class="people">
+      <div class="card person"><div class="avatar">AB</div><div><h3><a href="https://www.colorado.edu/ecee/al-bovik" target="_blank" rel="noopener">Alan Bovik</a></h3><div class="aff">University of Colorado Boulder</div><p>Provost's Chair in Engineering and director of the Laboratory for Image and Video Engineering (LIVE). Long-standing work on image and video quality assessment, subjective quality studies, and their use in streaming and user-generated content.</p></div></div>
+      <div class="card person"><div class="avatar">ZW</div><div><h3><a href="https://ece.uwaterloo.ca/~z70wang/" target="_blank" rel="noopener">Zhou Wang</a></h3><div class="aff">University of Waterloo</div><p>Professor and Tier 1 Canada Research Chair. Image and video processing, coding and communication, and visual perception, with a focus on perceptual quality assessment and quality-driven optimization of visual systems.</p></div></div>
+      <div class="card person"><div class="avatar">KM</div><div><h3><a href="https://kedema.org/" target="_blank" rel="noopener">Kede Ma</a></h3><div class="aff">City University of Hong Kong</div><p>Associate Professor. Perceptual image processing, computational vision and photography, with a focus on image quality assessment and the comparison and generalization of quality models.</p></div></div>
+      <div class="card person"><div class="avatar">RZ</div><div><h3><a href="https://richzhang.github.io/" target="_blank" rel="noopener">Richard Zhang</a></h3><div class="aff">Adobe Research</div><p>Senior Research Scientist. Computer vision, machine learning and graphics, with a focus on image synthesis and editing, perceptual similarity, and the evaluation of generative models.</p></div></div>
+      <div class="card person"><div class="avatar">JL</div><div><h3><a href="https://vision.gel.ulaval.ca/~jflalonde/" target="_blank" rel="noopener">Jean-François Lalonde</a></h3><div class="aff">Université Laval</div><p>Professor. Research at the intersection of computer vision and graphics, with a focus on lighting estimation, relighting and physically based image editing for applications such as augmented reality.</p></div></div>
+      <div class="card person"><div class="avatar">ML</div><div><h3><a href="https://xlim-sic.labo.univ-poitiers.fr/larabi/?lang=en" target="_blank" rel="noopener">Mohamed-Chaker Larabi</a></h3><div class="aff">Université de Poitiers · XLIM</div><p>Full Professor, leading the ASALI research axis. Quality assessment, compression, optimization and enhancement across content types such as immersive media; contributor to JPEG, MPEG and AOMedia standardization.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Program</div>
+      <h2>Preliminary schedule</h2>
+      <p class="lead">Afternoon session (local time). Questions can be submitted throughout the workshop via a QR code shown between talks; the panel moderator draws on them for the closing discussion.</p>
+    </div>
+    <div class="sched">
+      <div class="row"><div class="t">13:00</div><div class="s">Opening remarks</div><div class="dur">10 min</div></div>
+      <div class="row talk"><div class="t">13:10</div><div class="s">Invited talk 1</div><div class="dur">30 min</div></div>
+      <div class="row talk"><div class="t">13:40</div><div class="s">Invited talk 2</div><div class="dur">30 min</div></div>
+      <div class="row talk"><div class="t">14:10</div><div class="s">Invited talk 3</div><div class="dur">30 min</div></div>
+      <div class="row spot"><div class="t">14:40</div><div class="s">Paper spotlights<small>Four accepted papers, 5 minutes each</small></div><div class="dur">20 min</div></div>
+      <div class="row break"><div class="t">15:00</div><div class="s">Coffee break<small>Meet the spotlight authors</small></div><div class="dur">20 min</div></div>
+      <div class="row talk"><div class="t">15:20</div><div class="s">Invited talk 4</div><div class="dur">30 min</div></div>
+      <div class="row talk"><div class="t">15:50</div><div class="s">Invited talk 5</div><div class="dur">30 min</div></div>
+      <div class="row talk"><div class="t">16:20</div><div class="s">Invited talk 6</div><div class="dur">30 min</div></div>
+      <div class="row"><div class="t">16:50</div><div class="s">Closing panel with invited speakers</div><div class="dur">30 min</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="organizers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Team</div>
+      <h2>Organizers</h2>
+    </div>
+    <div class="org-grid">
+      <div class="card org"><div class="avatar">SS</div><h3>Shaolin Su</h3><div class="aff">Computer Vision Center (CVC), Barcelona</div></div>
+      <div class="card org"><div class="avatar">LS</div><h3><a href="https://ahupujr.github.io/" target="_blank" rel="noopener">Lei Sun</a></h3><div class="aff">INSAIT, Sofia University</div></div>
+      <div class="card org"><div class="avatar">DX</div><h3>Danna Xue</h3><div class="aff">Computer Vision Center (CVC), Barcelona</div></div>
+      <div class="card org"><div class="avatar">JV</div><h3>Javier Vazquez-Corral</h3><div class="aff">Universitat Autònoma de Barcelona &amp; CVC</div></div>
+      <div class="card org"><div class="avatar">LV</div><h3>Luc Van Gool</h3><div class="aff">INSAIT, Sofia University</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Contact</div>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact">
+      <div class="card"><h3>Shaolin Su</h3><a href="mailto:shaolin@cvc.uab.cat">shaolin@cvc.uab.cat</a></div>
+      <div class="card"><h3>Lei Sun</h3><a href="mailto:lei.sun@insait.ai">lei.sun@insait.ai</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>QAP 2027 · Quality Assessment in Practice · Workshop at CVPR 2027</span>
+    <span><a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
